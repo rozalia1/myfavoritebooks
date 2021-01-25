@@ -153,6 +153,7 @@ GEM
     nio4r (2.5.4)
     nokogiri (1.11.1-x64-mingw32)
       racc (~> 1.4)
+    pg (1.2.3-x64-mingw32)
     protobuf-cucumber (3.10.8)
       activesupport (>= 3.2)
       middleware
@@ -285,6 +286,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 2.7)
   launchy
+  pg
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
   rails-controller-testing
