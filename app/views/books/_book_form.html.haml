@@ -4,7 +4,10 @@
 
 = label :book, :genre, 'Genre'
 = select :book, :genre, ['','Science fiction','Drama','Action and Adventure','Romance','Mystery','Horror']
-  
+
+= label :book, :author, 'Author'
+= text_field :book, 'author'
+
 = label :book, :description, 'Description'
 = text_field :book, :description
   
