@@ -1,9 +1,9 @@
 # TL;DR: YOU SHOULD DELETE THIS FILE
-#
-# This file is used by web_steps.rb, which you should also delete
-#
-# You have been warned
-module NavigationHelpers
+ #
+ # This file is used by web_steps.rb, which you should also delete
+ #
+ # You have been warned
+ module NavigationHelpers
   # Maps a name to a path. Used by the
   #
   #   When /^I go to (.+)$/ do |page_name|
@@ -14,17 +14,25 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
-      '/'
+      '/books'
+
+    # Add more mappings here.
+    when /^the MyFavouriteBooks home page/
+      '/books'
+
+    when /^the Create New Book page/
+      '/books/new'
 
     when /^the edit page for "([^"]+)"$/
-      edit_book_path(Book.find_by_title($1).id)
+      edit_book_path(Book.find_by_title($1))
 
-    when /^the details page for "(.*)"/ 
-      book_path(Book.find_by_title $1)  
+    when /^the details page for "(.*)"$/
+      book_path(Book.find_by_title($1))
 
     when /^the Similar Books page for "(.*)"$/
-      search_similar_books_path(Book.find_by_title($1).id)  
-    # Add more mappings here.
+      search_similar_books_path(Book.find_by_title($1).id)
+
+
     # Here is an example that pulls values out of the Regexp:
     #
     #   when /^(.*)'s profile page$/i

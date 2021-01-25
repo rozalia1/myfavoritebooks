@@ -2,13 +2,11 @@
 = form_tag books_path, :method => :get, :id => 'genres_form' do
   = hidden_field_tag "title_sort", true if @title_header
   = hidden_field_tag ":publish_date_sort", true if @date_header
-  Include: 
+  Include:
   - @all_genres.each do |genre|
     = genre
     = check_box_tag "genres[#{genre}]", 1, @selected_genres.include?(genre), :id => "genres_#{genre}"
   = submit_tag 'Refresh', :id => 'genres_submit'
 
-
 = render :partial => 'table_form'
--# add to end of index.html.haml
 = link_to 'Add new book', new_book_path

@@ -1,22 +1,29 @@
 %h2 Details about #{@book.title}
-
 %ul#details
+  %li
+    Title:
+    = @book.title
   %li
     Genre:
     = @book.genre
   %li
-    ISBN Number:
-    = @book.isbn_number   
+    Published on:
+    = @book.publish_date.strftime("%B %d, %Y")
   %li
-    Publish Date:
-    = @book.publish_date.strftime("%B %d, %Y")    
+    ISBN:
+    = @book.isbn_number
+  %li
+    Author:
+    = @book.author
 
 %h3 Description:
 
 %p#description= @book.description
 
 = link_to 'Edit book', edit_book_path(@book)
-= link_to 'Find Books With Same Author', search_similar_books_url(id: @book.id)
--# This Delete link will not really be a link, but a form:
+%br
 = link_to 'Delete book', book_path(@book), :method => :delete
+%br
 = link_to 'Go back to listing', books_path
+%br
+= link_to 'Find Books With Same Author', search_similar_books_url(id: @book.id)
